@@ -1,0 +1,19 @@
+# basic information
+&MAIN PROJECT_NAME='test_script_RXB', NUMBER_OF_CASES=10, SEEDS=1/
+&PPSD PSD_ID='OBS_x','OBS_y', 'OBS_z'/
+
+===========================================================
+======= random obstruction ================================
+# FD-Gen code
+&IRXB PRE_PARM_INFO_ID='obstruction',
+      NAMELIST='OBST'
+      INITIAL_POINT=0,0,0
+      LENGTH_RANGE=4,8, WIDTH_RANGE=1,3, HEIGHT_RANGE=2,5/
+&MRND GENERATOR_ID='OBS_x', PRE_PARM_INFO_ID='obstruction_L', DISTRIBUTION_TYPE='UNIFORM', VALUE_TYPE='APPROX', APPROX_VALUE=0.01/
+&MRND GENERATOR_ID='OBS_y', PRE_PARM_INFO_ID='obstruction_W', DISTRIBUTION_TYPE='UNIFORM', VALUE_TYPE='APPROX', APPROX_VALUE=0.01/
+&MRND GENERATOR_ID='OBS_z', PRE_PARM_INFO_ID='obstruction_H', DISTRIBUTION_TYPE='UNIFORM', VALUE_TYPE='APPROX', APPROX_VALUE=0.01/
+&GRXB ID='obstruction', PRE_PARM_INFO_ID='obstruction', GENERATOR_ID='OBS_x','OBS_y','OBS_z'/
+==========================================================
+# FDS code
+&OBST ID='obstruction', XB=0.0,4.0,0.0,2.0,0.0,2.0,       COLOR='GRAY 94', SURF_ID='INERT'/
+==========================================================

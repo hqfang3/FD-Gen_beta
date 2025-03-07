@@ -1,0 +1,11 @@
+# basic information
+&MAIN PROJECT_NAME='test_script_OTH', NUMBER_OF_CASES=10, SEEDS=1/
+&PPSD PSD_ID='generator1'/
+
+======= other information =================================
+&IOTH PRE_PARM_INFO_ID='setpoint_value', NAMELIST='DEVC', ARG_NAME='SETPOINT', OTHERS_RANGE=300, 350/
+&MRND GENERATOR_ID='generator1', PRE_PARM_INFO_ID='setpoint_value', DISTRIBUTION_TYPE='UNIFORM', VALUE_TYPE='APPROX', APPROX_VALUE=1/
+&GOTH ID='FRONT DOOR TIMER', PRE_PARM_INFO_ID='setpoint_value', GENERATOR_ID='generator1'/
+==========================================================
+&DEVC ID='FRONT DOOR TIMER', QUANTITY='TIME', XYZ=-0.1,-0.4,0.1, SETPOINT= 300.0, INITIAL_STATE=.TRUE. /
+==========================================================

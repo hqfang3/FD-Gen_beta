@@ -1,0 +1,22 @@
+# basic information
+&MAIN PROJECT_NAME='test_script_DWT', NUMBER_OF_CASES=10, SEEDS=1/
+&PPSD PSD_ID='dot_timer1','dot_timer2'/
+
+===========================================================
+======= Door open time ====================================
+&IDWT PRE_PARM_INFO_ID='door open time', 
+      OBST_ID='door24_1','door24_2',
+      XB=9.4,9.6,23.15,24.3,0.0,2.0, OPEN_DIRECTION='Y-'
+      QUANTITY_NAME='TIME', PORTION=0.5,1
+      DEVC_ID='dot_timer1','dot_timer2'
+      DOOR_OR_WINDOW_OPEN_TIME_RANGE=100,151,200,250 /
+&MRND GENERATOR_ID='dot_timer1', PRE_PARM_INFO_ID='door open time_1', DISTRIBUTION_TYPE='UNIFORM'/
+&MRND GENERATOR_ID='dot_timer2', PRE_PARM_INFO_ID='door open time_2', DISTRIBUTION_TYPE='LINEAR'/
+&GDWT ID='door24',  PRE_PARM_INFO_ID='door open time', GENERATOR_ID='dot_timer1','dot_timer2'/
+==========================================================
+&DEVC ID='dot_timer1', QUANTITY='TIME', XYZ=0.0,26.3,0.0, SETPOINT=500, INITIAL_STATE=.TRUE./
+&DEVC ID='dot_timer2', QUANTITY='TIME', XYZ=0.0,26.3,0.0, SETPOINT=500, INITIAL_STATE=.TRUE./
+&OBST ID='door24_1', XB=9.4,9.6,23.15,24.3,0.0,2.0, RGB=153,102,0, SURF_ID='INERT', DEVC_ID='dot_timer1'/
+&OBST ID='door24_2', XB=9.4,9.6,23.15,24.3,0.0,2.0, RGB=153,102,0, SURF_ID='INERT', DEVC_ID='dot_timer2'/
+==========================================================
+

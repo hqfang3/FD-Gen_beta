@@ -1,9 +1,9 @@
 ===========================================================
 =========== Main INFO =====================================
-&MAIN PROJECT_NAME='example_commercial', NUMBER_OF_CASES=10, SEEDS=1/
+&MAIN PROJECT_NAME='example_commercial', NUMBER_OF_CASES=10, SEEDS=10/
 &PFSL FSL_ID='fire source'/
 &PHRC HRC_ID='CURVE'/
-&PPSD PSD_ID='FS_X','FS_Y','FS_Z'/
+&PPSD PSD_ID='dot_timer1','dot_timer2','dot_timer3'/
 ===========================================================
 
 &HEAD CHID='example_commercial'/
@@ -280,19 +280,22 @@
 ===========================================================
 ======= Door open time ====================================
 &IDWT PRE_PARM_INFO_ID='door open time', 
-      OBST_ID='door24_1','door24_2',
+      OBST_ID='door24_1','door24_2','door24_3'
       XB=9.4,9.6,23.15,24.3,0.0,2.0, OPEN_DIRECTION='Y-'
-      QUANTITY_NAME='TIME', PORTION=0.5,1
-      DEVC_ID='dot_timer1','dot_timer2'
-      DOOR_OR_WINDOW_OPEN_TIME_RANGE=100,150,200,250 /
+      QUANTITY_NAME='TIME', PORTION=0.5,0.75,1
+      DEVC_ID='dot_timer1','dot_timer2','dot_timer3'
+      DOOR_OR_WINDOW_OPEN_TIME_RANGE=100,150,200,250,250,300 /
 &MRND GENERATOR_ID='dot_timer1', PRE_PARM_INFO_ID='door open time_1', DISTRIBUTION_TYPE='UNIFORM'/
 &MRND GENERATOR_ID='dot_timer2', PRE_PARM_INFO_ID='door open time_2', DISTRIBUTION_TYPE='UNIFORM'/
-&GDWT ID='door24',  PRE_PARM_INFO_ID='door open time', GENERATOR_ID='dot_timer1','dot_timer2'/
+&MRND GENERATOR_ID='dot_timer3', PRE_PARM_INFO_ID='door open time_3', DISTRIBUTION_TYPE='UNIFORM'/
+&GDWT ID='door24',  PRE_PARM_INFO_ID='door open time', GENERATOR_ID='dot_timer1','dot_timer2','dot_timer3'/
 ==========================================================
 &DEVC ID='dot_timer1', QUANTITY='TIME', XYZ=0.0,26.3,0.0, SETPOINT=500, INITIAL_STATE=.TRUE./
 &DEVC ID='dot_timer2', QUANTITY='TIME', XYZ=0.0,26.3,0.0, SETPOINT=500, INITIAL_STATE=.TRUE./
+&DEVC ID='dot_timer3', QUANTITY='TIME', XYZ=0.0,26.3,0.0, SETPOINT=500, INITIAL_STATE=.TRUE./
 &OBST ID='door24_1', XB=9.4,9.6,23.15,24.3,0.0,2.0, RGB=153,102,0, SURF_ID='INERT', DEVC_ID='dot_timer1'/
 &OBST ID='door24_2', XB=9.4,9.6,23.15,24.3,0.0,2.0, RGB=153,102,0, SURF_ID='INERT', DEVC_ID='dot_timer2'/
+&OBST ID='door24_3', XB=9.4,9.6,23.15,24.3,0.0,2.0, RGB=153,102,0, SURF_ID='INERT', DEVC_ID='dot_timer3'/
 ==========================================================
 
 
@@ -319,14 +322,15 @@
 
 ===========================================================
 ======= FIRE SOURCE LOCATION ==============================
-&IFSL PRE_PARM_INFO_ID='fire source', XB=0,8.7,22.1,26.3,0,0.2, FIRE_BURNER_SIZE=2,1,0.2, MESH_SIZE=0.2,0.2,0.2/
+&IFSL PRE_PARM_INFO_ID='fire source', XB=0,8.7,22.1,26.3,0,4, FIRE_BURNER_SIZE=2,1,0.2, MESH_SIZE=0.2,0.2,0.2/
 &MRND GENERATOR_ID='FS_X', PRE_PARM_INFO_ID='fire source_X', DISTRIBUTION_TYPE='UNIFORM'/
 &MRND GENERATOR_ID='FS_Y', PRE_PARM_INFO_ID='fire source_Y', DISTRIBUTION_TYPE='UNIFORM'/
-&MRND GENERATOR_ID='FS_Z', PRE_PARM_INFO_ID='fire source_Z', DISTRIBUTION_TYPE='CONSTANT'/
+&MRND GENERATOR_ID='FS_Z', PRE_PARM_INFO_ID='fire source_Z', DISTRIBUTION_TYPE='CONSTANT', CONSTANT=0/
 &GFSL ID='fire source', PRE_PARM_INFO_ID='fire source', GENERATOR_ID='FS_X','FS_Y','FS_Z'/
 ===========================================================
 &OBST ID='fire source', XB=0,3.7,22.1,26.3,0.0,3.4, SURF_IDS='CURVE','INERT','INERT'/ 
 ===========================================================
+
 
 
 &OBST ID='Obstruction', XB=11.35,11.55,8.5,10.5,0.0,3.4, COLOR='GRAY 94', SURF_ID='INERT'/ 

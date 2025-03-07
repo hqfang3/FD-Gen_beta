@@ -1,0 +1,18 @@
+
+# basic information
+&MAIN PROJECT_NAME='test_script_FSL', NUMBER_OF_CASES=10, SEEDS=1/
+&PFSL FSL_ID='fire source'/
+&PPSD PSD_ID='FS_X','FS_Y','FS_Z'/
+
+===========================================================
+============ FIRE SOURCE LOCATION =========================
+# FD-Gen code
+&IFSL PRE_PARM_INFO_ID='PRE_FSL', XB=0.0,8.7,22.1,26.3,0,4, FIRE_BURNER_SIZE=2.0,1.0,0.2/
+&MRND GENERATOR_ID='FS_X', PRE_PARM_INFO_ID='PRE_FSL_X', DISTRIBUTION_TYPE='UNIFORM'/
+&MRND GENERATOR_ID='FS_Y', PRE_PARM_INFO_ID='PRE_FSL_Y', DISTRIBUTION_TYPE='NORMAL', MEAN=24, STDEV=2/
+&MRND GENERATOR_ID='FS_Z', PRE_PARM_INFO_ID='PRE_FSL_Z', DISTRIBUTION_TYPE='CONSTANT', CONSTANT=0/
+&GFSL ID='fire source', PRE_PARM_INFO_ID='PRE_FSL', GENERATOR_ID='FS_X','FS_Y','FS_Z'/
+===========================================================
+# FDS code
+&OBST ID='fire source', XB=0.7,3.7,22.1,26.3,0.0,0.2, SURF_IDS='CURVE','INERT','INERT'/
+===========================================================

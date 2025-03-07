@@ -1,0 +1,14 @@
+# basic information
+&MAIN PROJECT_NAME='test_script_VTP', NUMBER_OF_CASES=10, SEEDS=1/
+&PPSD PSD_ID='VENT_X','VENT_Y','VENT_Z'/
+
+===========================================================
+======= VENT POSITION =====================================
+&IVTP PRE_PARM_INFO_ID='VENT POSITION', PLANE='Z', MOVE_RANGE=0,1,-25,25,0,0, VENT_SIZE=0.5,20/
+&MRND GENERATOR_ID='VENT_X', PRE_PARM_INFO_ID='VENT POSITION_X', DISTRIBUTION_TYPE='UNIFORM'/
+&MRND GENERATOR_ID='VENT_Y', PRE_PARM_INFO_ID='VENT POSITION_Y', DISTRIBUTION_TYPE='UNIFORM'/
+&MRND GENERATOR_ID='VENT_Z', PRE_PARM_INFO_ID='VENT POSITION_Z', DISTRIBUTION_TYPE='CONSTANT'/
+&GVTP ID='VENT_FIRE',  PRE_PARM_INFO_ID='VENT POSITION', GENERATOR_ID='VENT_X','VENT_Y','VENT_Z'/
+===========================================================
+&VENT ID='VENT_FIRE', XB=0.0,1.0,-10,10,0,0, SURF_ID='LINEFIRE' /
+===========================================================
