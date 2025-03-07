@@ -1,10 +1,10 @@
-# Fire Data Generator (FD-Gen)  v1.0.0
+# Fire Data Generator (FD-Gen)  v1.0.0 Beta
 
-**Release Name**: FD-Gen v1.0.0
+**Release Name**: FD-Gen v1.0.0 Beta
 
-**Release Date**: [Dec 9, 2024]
+**Release Date**: [Mar 6, 2025]
 
-**Version**: 1.0.0
+**Version**: 1.0.0 (Beta)
 
 ---
 
@@ -40,7 +40,7 @@ Openpyxl	  3.1.5
 To prepare the FD-Gen input file.
 
 Each data generation project in FD-Gen is controlled by code lines of text-based FD-Gen script embedded within the original FDS case input file. 
-This script employs a four-letter-based naming convention for its namelist code lines to define randomized parameters and values within the FD-Gen input file. This structured approach mirrors the conventions used in FDS and CFAST, ensuring consistency and enabling an easier transition for existing FDS users. For detailed instructions on how to write FD-Gen input files and view examples, please refer to the NIST technical note at https://doi.org/10.6028/NIST.XXX.XXXX.
+This script employs a four-letter-based naming convention for its namelist code lines to define randomized parameters and values within the FD-Gen input file. This structured approach mirrors the conventions used in FDS and CFAST, ensuring consistency and enabling an easier transition for existing FDS users. For detailed instructions on how to write FD-Gen input files and view examples, please refer to the NIST technical note at [https://doi.org/10.6028/NIST.TN.2332].
 
 The following folder contains several examples of prepared FD-Gen input files.
 
@@ -124,10 +124,10 @@ The SEEDS_FOLDER contains the seeds used for the project, ensuring reproducibili
 **Figure 5.** example of SEEDS_FOLDER.
 
 ## Documentation
-For detailed instructions and example on using FD-Gen, please refer to the NIST technical note at https://doi.org/10.6028/NIST.XXX.XXXX.
+For detailed instructions and example on using FD-Gen, please refer to the NIST technical note at [https://doi.org/10.6028/NIST.TN.2332].
 
 ## Citation
-Author (Year) Title. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Series (Series Abbreviation) Publication ID. https://doi.org/10.6028/NIST.XXX.XXXX 
+H. Fang, W. C. Tam, (2025) Fire Data Generator (FD-Gen) v1.0.0. (National Institute of Standards and Technology, Gaithersburg, MD), NIST TN 2332. https://doi.org/10.6028/NIST.TN.2332 
 
 
 
